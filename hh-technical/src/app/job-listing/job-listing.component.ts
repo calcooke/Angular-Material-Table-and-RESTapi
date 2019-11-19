@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { JobsApiService } from '../jobs-api.service';
-import {  MatTableDataSource, MatSort, MatPaginator, MatTable} from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatTable } from '@angular/material';
 
 @Component({
   selector: 'app-job-listing',
@@ -20,12 +20,14 @@ export class JobListingComponent implements OnInit {
 
   ngOnInit() {
 
-    // Retrieve jobs list and assign to jobsList
+    // Retrieve jobs list and assign to jobsList variable
 
     this.apiService.getJobListing().subscribe((data: any[]) => {
 
       this.jobsList = new MatTableDataSource(data['jobs']);
-      this.table.dataSource  = this.jobsList;
+
+      // Once data is returned and assigned, populate the table
+
       this.populateData();
     });
 
@@ -33,8 +35,8 @@ export class JobListingComponent implements OnInit {
 
   populateData() {
 
-    console.log("populate data called");
-    // this.listData = new MatTableDataSource(this.finalReports);
+    this.table.dataSource = this.jobsList;
+
 
   }
 
