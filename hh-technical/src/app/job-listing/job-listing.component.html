@@ -9,6 +9,8 @@
 
     <div class="categories">
 
+      
+
       <button (click)="filterByTag('hr')" class="category-button" mat-raised-button>
         #HR
       </button>
@@ -24,10 +26,13 @@
       <button  (click)="filterByTag('technology')"class="category-button" mat-raised-button>
         #TECHNOLOGY
       </button>
+
+      <button (click)="clearSearch()" *ngIf="categoryTag || searchKey" mat-raised-button color="warn">Clear filter</button>
     
     </div>
   
 </div>
+
 
 
 
