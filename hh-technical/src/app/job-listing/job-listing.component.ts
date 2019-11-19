@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { JobsApiService } from '../jobs-api.service';
-import { MatTableDataSource, MatSort, MatPaginator, MatTable} from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatTable } from '@angular/material';
 
 @Component({
   selector: 'app-job-listing',
@@ -52,9 +52,11 @@ export class JobListingComponent implements OnInit {
   applyFilter() {
 
     // This applies the filter to the job list data.
-    console.log(this.searchKey.length)
+
+    // if (this.searchKey.length <= 2) { return; }
 
     this.jobsList.filter = this.searchKey.trim();
+
 
   }
 
