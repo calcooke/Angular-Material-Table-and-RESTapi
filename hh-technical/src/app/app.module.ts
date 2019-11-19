@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobListingComponent } from './job-listing/job-listing.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,

@@ -46,16 +46,33 @@ export class JobListingComponent implements OnInit {
 
     this.table.dataSource = this.jobsList;
 
+  }
+
+  // Function called when a category tag is clicked on
+
+  filterByTag(category) {
+
+    // Creating a custom filter just for categories
+
+    this.jobsList.filterPredicate = (data, filter) => {
+      const dataStr = data.category.toLowerCase();
+      return dataStr.indexOf(filter) !== -1;
+    };
+
+    this.jobsList.filter = category.trim().toLowerCase();
 
   }
 
   applyFilter() {
 
-    // This applies the filter to the job list data.
+    // Filter the data by the search key.
+    // the search key is determined by the value of the input field.
 
-    if (this.searchKey.length >= 2) { }
-
-    this.jobsList.filter = this.searchKey.trim();
+    if (this.searchKey.length >= 2) { 
+      this.jobsList.filter = this.searchKey.trim();
+    } else {
+      this.clearSearch();
+    }
 
   }
 
@@ -65,6 +82,7 @@ export class JobListingComponent implements OnInit {
   clearSearch() {
 
     this.searchKey = '';
+    // Reset the filtered data.
     this.applyFilter();
 
   }
@@ -74,6 +92,7 @@ export class JobListingComponent implements OnInit {
   viewJob(url: string) {
 
     window.open(url, '_blank');
+
   }
 
 }
