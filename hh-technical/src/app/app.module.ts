@@ -5,6 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobListingComponent } from './job-listing/job-listing.component';
 import { HttpClientModule } from '@angular/common/http';
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatListModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -14,7 +27,19 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatDialogModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
