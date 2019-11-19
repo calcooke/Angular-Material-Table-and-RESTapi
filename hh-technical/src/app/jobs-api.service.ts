@@ -14,6 +14,8 @@ export class JobsApiService {
 
   }
 
+  // Retrieving data from API
+
   getJobListing() {
     return this.httpClient.get(this.API_URL);
   }

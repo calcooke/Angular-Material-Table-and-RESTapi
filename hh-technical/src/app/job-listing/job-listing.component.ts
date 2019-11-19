@@ -8,12 +8,16 @@ import { JobsApiService } from '../jobs-api.service';
 })
 export class JobListingComponent implements OnInit {
 
+  jobsList = [];
+
   constructor(private apiService: JobsApiService) { }
 
   ngOnInit() {
 
     this.apiService.getJobListing().subscribe((data: any[]) => {
-      console.log(data);
+
+      this.jobsList = data['jobs'];
+
 
     });
   }
