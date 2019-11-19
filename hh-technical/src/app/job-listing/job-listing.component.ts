@@ -71,8 +71,13 @@ export class JobListingComponent implements OnInit {
   filterByTag(category) {
 
     // Function called when a category tag is clicked on
+    // Clear the input
+
+    this.searchKey = null;
 
     this.categoryTag = category;
+
+    // Filter by selected category
 
     this.jobsList.filter = this.categoryTag.trim().toLowerCase();
 
