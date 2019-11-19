@@ -53,10 +53,9 @@ export class JobListingComponent implements OnInit {
 
     // This applies the filter to the job list data.
 
-    // if (this.searchKey.length <= 2) { return; }
+    if (this.searchKey.length >= 2) { }
 
     this.jobsList.filter = this.searchKey.trim();
-
 
   }
 
@@ -68,6 +67,13 @@ export class JobListingComponent implements OnInit {
     this.searchKey = '';
     this.applyFilter();
 
+  }
+
+  // Open the job application page in a new tab
+
+  viewJob(url: string) {
+
+    window.open(url, '_blank');
   }
 
 }
