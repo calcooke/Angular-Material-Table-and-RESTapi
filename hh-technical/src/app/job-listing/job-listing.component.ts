@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { JobsApiService } from '../jobs-api.service';
 import { MatTableDataSource, MatSort, MatPaginator, MatTable } from '@angular/material';
 
+
 @Component({
   selector: 'app-job-listing',
   templateUrl: './job-listing.component.html',
@@ -27,19 +28,27 @@ export class JobListingComponent implements OnInit {
 
       this.jobsList = new MatTableDataSource(data['jobs']);
 
-      // Setting a custom filter to determine which columns to search by.
-      // This will ignore everything besides the title and description.text
+      // Setting a custom filter.
 
       this.jobsList.filterPredicate = (data, filter) => {
 
+        // If the user clicks on a category tag, the jobsList data will
+        // be filtered by categories
+
         if (this.categoryTag != null) {
+
           const dataStr = data.category.toLowerCase();
           return dataStr.indexOf(filter) !== -1;
-        } else if(this.searchKey != null){
-        const dataStr = data.title.toLowerCase() + data.description.text.toLowerCase();
-        return dataStr.indexOf(filter) !== -1;
+
+          // If a user searches via the input, the data is filtered by job title and description.
+
+        } else if (this.searchKey != null) {
+
+          const dataStr = data.title.toLowerCase() + data.description.text.toLowerCase();
+          return dataStr.indexOf(filter) !== -1;
+
         }
-        
+
       };
 
       // Once data is returned and assigned, populate the table
@@ -52,22 +61,18 @@ export class JobListingComponent implements OnInit {
 
   populateData() {
 
+    // Set the material table data source to be the now filtered (or unfiltered) data.
+
     this.table.dataSource = this.jobsList;
 
   }
 
-  // Function called when a category tag is clicked on
 
   filterByTag(category) {
 
+    // Function called when a category tag is clicked on
+
     this.categoryTag = category;
-
-    // Creating a custom filter just for categories
-
-    // this.jobsList.filterPredicate = (data, filter) => {
-    //   const dataStr = data.category.toLowerCase();
-    //   return dataStr.indexOf(filter) !== -1;
-    // };
 
     this.jobsList.filter = this.categoryTag.trim().toLowerCase();
 
@@ -75,11 +80,15 @@ export class JobListingComponent implements OnInit {
 
   applyFilter() {
 
+    // Called from every keyUp
+    // Resetting category tag when the search bar is in use.
+
     this.categoryTag = null;
 
     // Filter the data by the search key.
-    // the search key is determined by the value of the input field.
+    // The search key is determined by the value of the input field.
 
+    // Data will only be filtered when the user enters two or more characters
     if (this.searchKey.length >= 2) {
       this.jobsList.filter = this.searchKey.trim();
     } else {
@@ -89,20 +98,21 @@ export class JobListingComponent implements OnInit {
   }
 
 
-
-  // Reset the search term to an empty string.
   clearSearch() {
 
+    // Reset the searchKey to an empty string.
+    // The categoryTag also gets reset once applyFilter is called below.
     this.searchKey = '';
     // Reset the filtered data.
     this.applyFilter();
 
   }
 
-  // Open the job application page in a new tab
 
   viewJob(url: string) {
 
+    // Called when the user clicks a row
+    // Opens the job application page in a new tab
     window.open(url, '_blank');
 
   }

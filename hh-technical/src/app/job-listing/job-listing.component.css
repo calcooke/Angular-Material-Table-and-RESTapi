@@ -5,6 +5,15 @@
 
 }
 
+.searchIcon{
+  margin-right: 3px;
+  /* margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); */
+}
+
 .search-div{
 
   background-color: black;
@@ -45,26 +54,3 @@
   width: 100%;
 
 }
-
- .searchField div.mat-form-field-underline {
-
-  display: none;
-  
-}
-
-/*
-.searchField div.mat-form-field-infix{
-
-  border-top: 0px;
-}
-
-.searchField div.mat-form-field-wrapper{
-
-  padding-bottom: 0px;
-}
-
-.searchField div.mat-form-field-suffix button{
-
-  height: 32px;
-  width: 32px;
-} */

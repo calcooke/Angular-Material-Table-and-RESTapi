@@ -8,11 +8,7 @@ export class JobsApiService {
 
   private API_URL = 'https://hirehive-testing-account.hirehive.com/api/v1/jobs';
 
-  constructor(private httpClient: HttpClient) {
-
-
-
-  }
+  constructor(private httpClient: HttpClient) {}
 
   // Retrieving data from API
 
