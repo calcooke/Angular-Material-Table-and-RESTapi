@@ -1,6 +1,77 @@
-/* .mat-form-field{
+.category-button{
 
-  width:75%;
+  margin-right: 10px;
+  margin-top: 5px;
+
+}
+
+.search-div{
+
+  background-color: black;
+  padding-top:20px;
+  padding-bottom: 60px;
 
 
+}
+
+
+
+.mat-form-field, .searchField{
+
+
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  
+  
+}
+
+.categories{
+  width: 70%;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+  
+
+}
+
+.search-div, .table.mat-table,  .data-table{
+
+  width: 80%;
+  margin: 20px auto;
+
+}
+
+.full-width-table{
+
+  width: 100%;        
+}
+
+  
+
+ .searchField div.mat-form-field-underline {
+
+  display: none;
+}
+
+/*
+.searchField div.mat-form-field-infix{
+
+  border-top: 0px;
+}
+
+.searchField div.mat-form-field-wrapper{
+
+  padding-bottom: 0px;
+}
+
+.searchField div.mat-form-field-suffix button{
+
+  height: 32px;
+  width: 32px;
 } */
